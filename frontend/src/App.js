@@ -1,10 +1,11 @@
 import React from "react";
 import {Routes, Route} from "react-router-dom";
 import Home from "./pages/Home";
-import About from "./pages/About";
+import About from "./components/About";
 import Contact from "./pages/Contact";
 import Service from "./pages/Service";
 import Blog from "./pages/Blog";
+
 const App = () => {
   return (
         <Routes>
