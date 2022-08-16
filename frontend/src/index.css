@@ -1762,6 +1762,18 @@ section {
   color: rgba(255, 255, 255, 0.8);
 }
 
+.about-background-image {
+  width: 100%;
+  min-height: 50vh;
+  background-color: var(--color-secondary);
+  background-image: url("./assets/page-header.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding: 120px 0 60px 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
 .hero h2 {
   margin-bottom: 20px;
   padding: 0;

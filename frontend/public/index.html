@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
+    <meta charSet="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Logis Bootstrap Template - About</title>
+  <meta content="" name="description" />
+  <meta content="" name="keywords" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    
-      <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link href="%PUBLIC_URL%/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link
+    href="%PUBLIC_URL%/vendor/bootstrap-icons/bootstrap-icons.css"
+    rel="stylesheet"
+  />
+  <link
+    href="%PUBLIC_URL%/vendor/fontawesome-free/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link href="%PUBLIC_URL%/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="%PUBLIC_URL%/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="%PUBLIC_URL%/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="%PUBLIC_URL%/css/main.css" rel="stylesheet" />
 
   <!-- Vendor CSS Files -->
   <link href="%PUBLIC_URL%/vendor/bootstrap.min.css" rel="stylesheet">
@@ -52,17 +65,160 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="%PUBLIC_URL%/vendor/bootstrap.bundle.min.js"></script>
+    <script src="%PUBLIC_URL%/vendor/purecounter_vanilla.js"></script>
+    <script src="%PUBLIC_URL%/vendor/glightbox.min.js"></script>
+    <script src="%PUBLIC_URL%/vendor/swiper-bundle.min.js"></script>
+    <script src="%PUBLIC_URL%/vendor/aos.js"></script>
+    <script src="%PUBLIC_URL%/vendor/validate.js"></script>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+      
+        const preloader = document.querySelector('#preloader');
+        if (preloader) {
+          window.addEventListener('load', () => {
+            preloader.remove();
+          });
+        }
+      
+        /**
+         * Sticky header on scroll
+         */
+        const selectHeader = document.querySelector('#header');
+        if (selectHeader) {
+          document.addEventListener('scroll', () => {
+            window.scrollY > 100 ? selectHeader.classList.add('sticked') : selectHeader.classList.remove('sticked');
+          });
+        }
+      
+        /**
+         * Scroll top button
+         */
+        const scrollTop = document.querySelector('.scroll-top');
+        if (scrollTop) {
+          const togglescrollTop = function() {
+            window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+          }
+          window.addEventListener('load', togglescrollTop);
+          document.addEventListener('scroll', togglescrollTop);
+          scrollTop.addEventListener('click', window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          }));
+        }
+      
+        /**
+         * Mobile nav toggle
+         */
+        const mobileNavShow = document.querySelector('.mobile-nav-show');
+        const mobileNavHide = document.querySelector('.mobile-nav-hide');
+      
+        document.querySelectorAll('.mobile-nav-toggle').forEach(el => {
+          el.addEventListener('click', function(event) {
+            event.preventDefault();
+            mobileNavToogle();
+          })
+        });
+      
+        function mobileNavToogle() {
+          document.querySelector('body').classList.toggle('mobile-nav-active');
+          mobileNavShow.classList.toggle('d-none');
+          mobileNavHide.classList.toggle('d-none');
+        }
+      
+        /**
+         * Hide mobile nav on same-page/hash links
+         */
+        document.querySelectorAll('#navbar a').forEach(navbarlink => {
+      
+          if (!navbarlink.hash) return;
+      
+          let section = document.querySelector(navbarlink.hash);
+          if (!section) return;
+      
+          navbarlink.addEventListener('click', () => {
+            if (document.querySelector('.mobile-nav-active')) {
+              mobileNavToogle();
+            }
+          });
+      
+        });
+      
+        /**
+         * Toggle mobile nav dropdowns
+         */
+        const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
+      
+        navDropdowns.forEach(el => {
+          el.addEventListener('click', function(event) {
+            if (document.querySelector('.mobile-nav-active')) {
+              event.preventDefault();
+              this.classList.toggle('active');
+              this.nextElementSibling.classList.toggle('dropdown-active');
+      
+              let dropDownIndicator = this.querySelector('.dropdown-indicator');
+              dropDownIndicator.classList.toggle('bi-chevron-up');
+              dropDownIndicator.classList.toggle('bi-chevron-down');
+            }
+          })
+        });
+      
+        /**
+         * Initiate pURE cOUNTER
+         */
+        new PureCounter();
+      
+        /**
+         * Initiate glightbox
+         */
+        const glightbox = GLightbox({
+          selector: '.glightbox'
+        });
+      
+        /**
+         * Init swiper slider with 1 slide at once in desktop view
+         */
+        new Swiper('.slides-1', {
+          speed: 600,
+          loop: true,
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false
+          },
+          slidesPerView: 'auto',
+          pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }
+        });
+      
+        /**
+         * Animation on scroll function and init
+         */
+        function aos_init() {
+          AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+          });
+        }
+        window.addEventListener('load', () => {
+          aos_init();
+        });
+      
+      });
+    </script>
   </body>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="%PUBLIC_URL%/vendor/bootstrap.bundle.min.js"></script>
-<script src="%PUBLIC_URL%/vendor/purecounter_vanilla.js"></script>
-<script src="%PUBLIC_URL%/vendor/glightbox.min.js"></script>
-<script src="%PUBLIC_URL%/vendor/swiper-bundle.min.js"></script>
-<script src="%PUBLIC_URL%/vendor/aos.js"></script>
-<script src="%PUBLIC_URL%/vendor/validate.js"></script>
-
-<script src="%PUBLIC_URL%/main.js"></script>
+ 
 
 </html>
